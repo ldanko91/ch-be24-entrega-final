@@ -1,0 +1,43 @@
+<h1>Bienvenido Admin!</h1>
+<section id="selectProdCats">
+    <div class="filters">
+        <h3>Filtros por categorías populares</h3>
+        <ul class="filters-nav">
+            <li><a href='/api/products/backoffice'>Administrador de productos</a></li>
+            <li><a href='/api/users'>Administrador de usuarios</a></li>
+        </ul>
+    </div>
+</section>
+
+<section id="perfil">
+    <div>
+        <ul>
+            <li>Nombre completo: {{profile.first_name}} {{profile.last_name}}</li>
+            <li>ID: {{profile._id}}</li>
+            <li>{{profile.email}}</li>
+            <li>Edad: {{profile.age}}</li>
+            <li>Rol: {{profile.role}}</li>
+        </ul>
+    </div>
+</section>
+
+<section id="usuarios">
+<h2>Listado de usuarios</h2>
+    <div>
+
+        {{#each users}}
+        <div>
+            <h3>{{first_name}} {{last_name}}</h3>
+            <ul>
+                <li>ID:{{_id}}</li>
+                <li>{{email}}</li>
+                <li>Edad:{{age}}</li>
+                <li>Rol:{{role}}</li>
+            </ul>
+        </div>
+        {{/each}}
+    </div>
+    <a href="/api/products">
+        <h3>Volver al listado general</h3>
+    </a>
+</section>
