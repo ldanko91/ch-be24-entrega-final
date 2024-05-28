@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
-import { mongoConfig } from "../../config/mongo.config.js";
+import { config } from "dotenv";
+config()
 
-export const mongoConnection = () => mongoose.connect(mongoConfig.MongoUrl)
+export const mongoConnection = () => mongoose.connect(process.env.DB_URL)
