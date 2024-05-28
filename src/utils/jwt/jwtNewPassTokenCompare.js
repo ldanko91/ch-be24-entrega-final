@@ -5,7 +5,7 @@ config();
 const PRIVATE_KEY = process.env.JWT_PRIVATE_KEY
 
 export const newPassToken = (req, res, next) => {
-    const authHeader = req.headers.cookie
+    const authHeader = req.headers.cookie.authHeader
     if (!authHeader)
         return res.redirect('/recovery')
 
