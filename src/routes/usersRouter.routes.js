@@ -15,7 +15,7 @@ usersRouter.get('/', passportCall('jwt'), Auth('superAdmin','admin'), async (req
     return await LoginController.rootGet(req, res)
 })
 
-usersRouter.get('/login', existsToken, async (req, res) => {
+usersRouter.get('/login', async (req, res) => {
     return res.render('login', {
         title: `Acceso de usuarios`
     })
