@@ -47,6 +47,6 @@ app.use(passport.initialize())
 //config HBS!
 
 app.engine('handlebars', handlebars.engine());
-app.set('views', process.cwd() + '/views')
+app.set('views', 'src/views')
 app.set('view engine', 'handlebars');
-app.use(express.static(process.cwd() + '/public'))
+app.use(express.static('src/public'))
