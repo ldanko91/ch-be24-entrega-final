@@ -13,7 +13,7 @@ const ticketsSchema = new mongoose.Schema({
     },
     code: {
         type: String,
-        default: uuid(),
+        default: uuidv4(),
         required: true
     },
     amount: {
