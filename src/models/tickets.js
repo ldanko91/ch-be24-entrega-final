@@ -1,6 +1,6 @@
 import { Timestamp } from "mongodb";
 import mongoose from "mongoose";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from 'uuid';
 
 const ticketsCollection = 'ticket'
 
@@ -23,7 +23,7 @@ const ticketsSchema = new mongoose.Schema({
     },
     purchaser: {
         type: String,
-        default: uuid(),
+        default: uuidv4(),
         required: true
     },
     purchase_datetime: {

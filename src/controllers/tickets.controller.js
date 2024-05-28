@@ -5,7 +5,7 @@ import DecreaseStock from "../utils/middlewares/ticketMiddlewares/DecreaseStock.
 import DelFromCart from "../utils/middlewares/ticketMiddlewares/DelFromCart.js";
 import IsInStock from "../utils/middlewares/ticketMiddlewares/IsInStock.js";
 import TotalAmount from "../utils/middlewares/ticketMiddlewares/TotalAmount.js";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from 'uuid';
 
 export default class dbTicketsController {
 
@@ -17,7 +17,7 @@ export default class dbTicketsController {
         let stockProcess = await DecreaseStock(stockCheck.processedProds)
         newTicket.products = stockCheck.processedProds;
         let delFromCart = DelFromCart(cId, stockCheck.processedProds)
-        newTicket.code = uuid()
+        newTicket.code = uuidv4()
         newTicket.purchase_datetime = Date.now()
         const upload = await TicketsManager.addTicket(newTicket);
         return { upload, newTicket, stockCheck }
