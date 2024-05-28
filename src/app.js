@@ -18,14 +18,14 @@ const app = express()
 // app.use(logger)
 
 const swaggerOptions = {
-definition: {
-    openapi: '3.0.3',
-    info: {
-    title: 'Documentación de API E-Commerce',
-    description: 'Se describirán las diferentes rutas habilitadas para la API en su sección Productos (/api/products)',
+    definition: {
+        openapi: '3.0.3',
+        info: {
+            title: 'Documentación de API E-Commerce',
+            description: 'Se describirán las diferentes rutas habilitadas para la API en su sección Productos (/api/products)',
+        },
     },
-},
-apis: [`${process.cwd()}/docs/**/*.yaml`],
+    apis: [`${process.cwd()}/docs/**/*.yaml`],
 }
 
 const specs = swaggerJSDoc(swaggerOptions)
