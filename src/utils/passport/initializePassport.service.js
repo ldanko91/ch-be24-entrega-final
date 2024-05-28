@@ -5,7 +5,7 @@ import jwt from "passport-jwt";
 import dbUsersController from "../../controllers/user.controller.js";
 import useValidPassword from "../bcrypt/bryptUseValidPassword.js";
 import { cookieExtractor } from "../jwt/cookieExtractor.js";
-import NewUserDto from "../../dto/userDto/newUserDto.js";
+import NewUserDto from "../../dto/userDto/NewUserDto.js"
 const DBUsersController = new dbUsersController();
 const LocalStrategy = local.Strategy
 const JWTStrategy = jwt.Strategy
