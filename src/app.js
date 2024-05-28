@@ -1,5 +1,4 @@
 import express from "express";
-import { serverConfig } from "./config/serverConfig.config.js";
 import cookieParser from "cookie-parser";
 import indexRouter from "./routes/index.routes.js";
 import { mongoConnection } from "./utils/mongo/mongoConnection.js";
@@ -10,6 +9,9 @@ import ErrorMiddleware from "./utils/middlewares/errors/ErrorMiddleware.js";
 import logger from "./utils/middlewares/logs/logger.middleware.js";
 import swaggerJSDoc from 'swagger-jsdoc'
 import swaggerUiExpress from 'swagger-ui-express'
+import { config } from "dotenv";
+config()
+const port = process.env.PORT || 8080
 
 //CONFIG SERVER y DB
 const app = express()
@@ -30,8 +32,8 @@ const specs = swaggerJSDoc(swaggerOptions)
 app.use('/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs))
 
 app.use(ErrorMiddleware)
-const httpServer = app.listen(serverConfig.ExpressPort,
-    () => console.log(`Servidor conectado al puerto: ${serverConfig.ExpressPort}`))
+const httpServer = app.listen(port,
+    () => console.log(`Servidor conectado al puerto: ${port}`))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())

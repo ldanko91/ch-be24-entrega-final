@@ -2,6 +2,6 @@ import { config } from "dotenv";
 config()
 
 export const serverConfig = {
-    ExpressPort: process.env.EXPRESS_PORT,
+    ExpressPort: process.env.PORT,
 
 }
